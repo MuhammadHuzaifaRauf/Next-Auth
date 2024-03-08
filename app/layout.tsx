@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "./globals.css";
+import Navbar from "./(components)/Navbar";
+import { NextAuthProvidr } from "./Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const lexend = Lexend({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={lexend.className}>
+        <NextAuthProvidr>
+          <div className="max-w-3xl mx-auto">
+            <Navbar />
+            {children}
+          </div>
+        </NextAuthProvidr>
+      </body>
     </html>
   );
 }
