@@ -1,13 +1,21 @@
-import { log } from "console";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
 
 const authOoptions = {
   providers: [
+    // Google provider
+
     GoogleProvider({
       clientId:
         "951857334989-5376je7negk55jnnvk3oqe48acfmbud5.apps.googleusercontent.com",
       clientSecret: "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",
+    }),
+
+    // Github provider
+    GithubProvider({
+      clientId: "f50d897c5ee6ba8c6864",
+      clientSecret: "0c0e574c9cd2a737ea3762e6095e9dea3a0d3ee7",
     }),
   ],
   callbacks: {
